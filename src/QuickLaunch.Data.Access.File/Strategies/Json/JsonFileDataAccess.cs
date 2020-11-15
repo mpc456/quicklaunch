@@ -18,12 +18,5 @@ namespace QuickLaunch.Data.Access.File.Strategies.Json
             return jsonContent.LaunchInformation.Select(x => x as ILaunchInformation).ToDictionary(x => x.Name);
         }
     }
-
-    public class JsonDataModel
-    {
-        public List<LaunchInformation> LaunchInformation { get; set; }
-    }
 }
 
-//{
-//    "LaunchInformation":

@@ -1,0 +1,14 @@
+﻿[babel]
+Filename="https://translate.google.com/"
+Path=""""
+Params=""""
+Notes="Online translations via Google"
+GUID=
+StartMode=5
+[mail]
+Filename="https://outlook.live.com/"
+Path=""""
+Params=""""
+Notes="Microsoft Outlook Web Access e-mail reader"
+GUID={5E5A2DF8-DFBB-44E4-B0F5-3CEF777C40CF}
+StartMode=5

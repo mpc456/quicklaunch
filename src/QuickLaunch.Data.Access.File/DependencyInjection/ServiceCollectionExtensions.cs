@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using QuickLaunch.Data.Access.File.Implementation;
+using QuickLaunch.Data.Access.File.Strategies.Ini;
 using QuickLaunch.Data.Access.File.Strategies.Json;
 using QuickLaunch.Data.Access.Interface;
 using System;
@@ -25,6 +26,7 @@ namespace QuickLaunch.Data.Access.File.DependencyInjection
             services.AddTransient<IDataAccess, FileDataAcessFacade>();
 
             services.AddTransient<IFileDataAccess, JsonFileDataAccess>();
+            services.AddTransient<IFileDataAccess, QrsFileDataAccess>();
         }
     }
 }
