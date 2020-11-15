@@ -6,6 +6,6 @@ namespace QuickLaunch.Data.Access.File.Implementation
     public interface IFileDataAccess
     {
         string SupportedFileExtension { get; }
-        IDictionary<string, ILaunchInformation> GetLaunchInformation(DataAccessFileConfig config);
+        IDictionary<string, ILaunchInformation> GetLaunchInformation(IDataAccessFileConfig config);
     }
 }

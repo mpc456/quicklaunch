@@ -9,9 +9,9 @@ namespace QuickLaunch.Data.Access.File.Strategies.Json
 {
     public class JsonFileDataAccess : IFileDataAccess
     {
-        public string SupportedFileExtension => "json";
+        public string SupportedFileExtension => ".json";
 
-        public IDictionary<string, ILaunchInformation> GetLaunchInformation(DataAccessFileConfig config)
+        public IDictionary<string, ILaunchInformation> GetLaunchInformation(IDataAccessFileConfig config)
         {
             var jsonString = System.IO.File.ReadAllText(config.FilePath);
             var jsonContent = JsonSerializer.Deserialize<JsonDataModel>(jsonString);

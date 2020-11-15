@@ -18,13 +18,13 @@ namespace QuickLaunch.Data.Access.File
         private readonly IDictionary<string, ILaunchInformation> data;
         private readonly IEnumerable<IFileDataAccess> dataAccessImplementations;
 
-        public FileDataAcessFacade(IOptions<DataAccessFileConfig> config, IEnumerable<IFileDataAccess> dataAccessImplementations)
+        public FileDataAcessFacade(IDataAccessFileConfig config, IEnumerable<IFileDataAccess> dataAccessImplementations)
         {
-            LoadData(config.Value);
             this.dataAccessImplementations = dataAccessImplementations;
+            this.data = LoadData(config);
         }
 
-        private IDictionary<string, ILaunchInformation> LoadData(DataAccessFileConfig config)
+        private IDictionary<string, ILaunchInformation> LoadData(IDataAccessFileConfig config)
         {
             var fileInfo = new FileInfo(config.FilePath);
 

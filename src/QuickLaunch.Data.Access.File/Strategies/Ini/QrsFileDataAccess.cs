@@ -9,9 +9,9 @@ namespace QuickLaunch.Data.Access.File.Strategies.Ini
 {
     public class QrsFileDataAccess : IFileDataAccess
     {
-        public string SupportedFileExtension => "qrs";
+        public string SupportedFileExtension => ".qrs";
 
-        public IDictionary<string, ILaunchInformation> GetLaunchInformation(DataAccessFileConfig config)
+        public IDictionary<string, ILaunchInformation> GetLaunchInformation(IDataAccessFileConfig config)
         {
             var configuration = new ConfigurationBuilder()
                 .AddIniFile(config.FilePath)

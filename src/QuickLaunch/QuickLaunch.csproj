@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\QuickLaunch.Data.Access.File\QuickLaunch.Data.Access.File.csproj" />
     <ProjectReference Include="..\QuickLaunch.Data.Access.InMemory\QuickLaunch.Data.Access.InMemory.csproj" />
     <ProjectReference Include="..\QuickLaunch.Data.Access.Interface\QuickLaunch.Data.Access.Interface.csproj" />
     <ProjectReference Include="..\QuickLaunch.Data.Model\QuickLaunch.Data.Model.csproj" />
@@ -20,6 +21,9 @@
 
   <ItemGroup>
     <None Update="Config\appSettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Config\launchData.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

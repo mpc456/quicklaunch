@@ -19,7 +19,7 @@ namespace QuickLaunch.Data.Access.InMemory
 
         private IEnumerable<ILaunchInformation> GetLauchInformation()
         {
-            yield return new LaunchInformation { Name = "bbc", FileName = "https://www.bbc.co.uk/" };
+            yield return new LaunchInformation { Name = "bbg", FileName = "https://www.bloomberg.com/" };
             yield return new LaunchInformation { Name = "reuters", FileName = "https://uk.reuters.com/" };
         }
     }

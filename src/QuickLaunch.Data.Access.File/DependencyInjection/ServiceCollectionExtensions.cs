@@ -20,7 +20,6 @@ namespace QuickLaunch.Data.Access.File.DependencyInjection
 
         public static void AddFileDataAccess(this IServiceCollection services, DataAccessFileConfig config)
         {
-            services.ConfigureOptions(config);
             services.AddSingleton<IDataAccessFileConfig>(sp => config);
 
             services.AddTransient<IDataAccess, FileDataAcessFacade>();
