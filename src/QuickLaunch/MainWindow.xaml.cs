@@ -45,12 +45,21 @@ namespace QuickLaunch
             
             CurrentTextBoxEntry = textBox.Text.ToLower();
 
+            if(CurrentTextBoxEntry.Equals("exit"))
+            {
+                TextBlock_Matches.Text = "Close application";
+                return;
+            }
+
             var matchingEntries = LaunchInformation.Where(i => i.Key.Contains(CurrentTextBoxEntry));
 
             if (!matchingEntries.Any())
             {
                 TextBlock_Matches.Text = $"No matching entries";
                 TextBlock_Matches.Foreground = Brushes.Red;
+                TextBlock_Link.Text = string.Empty;
+                CurrentMatch = null;
+                return;
             }
 
             if(matchingEntries.Count().Equals(1))
