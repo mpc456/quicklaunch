@@ -40,13 +40,9 @@ namespace QuickLaunch
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            // ... Get control that raised this event.
             var textBox = sender as TextBox;
             
             CurrentTextBoxEntry = textBox.Text.ToLower();
-
-            if (CurrentTextBoxEntry.Equals("exit"))
-                Application.Current.Shutdown();
         }
 
         private void TextBox_KeyDown(object sender, KeyEventArgs e)
@@ -55,17 +51,16 @@ namespace QuickLaunch
             {
                 e.Handled = true;
 
-                if(LaunchInformation.ContainsKey(CurrentTextBoxEntry))
+                if (CurrentTextBoxEntry.Equals("exit"))
+                    Application.Current.Shutdown();
+
+                if (LaunchInformation.ContainsKey(CurrentTextBoxEntry))
                 {
                     processRunner.Run(LaunchInformation[CurrentTextBoxEntry]);
-                    Shutdown();
+                    this.WindowState = System.Windows.WindowState.Minimized;
                 }
             }
         }
 
-        private void Shutdown()
-        {
-            Application.Current.Shutdown();
-        }
 }
 }
