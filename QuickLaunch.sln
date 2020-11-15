@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickLaunch.Data.Access.Int
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickLaunch.Data.Access.InMemory", "src\QuickLaunch.Data.Access.InMemory\QuickLaunch.Data.Access.InMemory.csproj", "{95203870-772E-46D8-A8FD-BF79FA41B346}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickLaunch.Data.Access.File", "src\QuickLaunch.Data.Access.File\QuickLaunch.Data.Access.File.csproj", "{1B221A5C-2671-4621-AD6C-5A988E6E905D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{95203870-772E-46D8-A8FD-BF79FA41B346}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95203870-772E-46D8-A8FD-BF79FA41B346}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95203870-772E-46D8-A8FD-BF79FA41B346}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B221A5C-2671-4621-AD6C-5A988E6E905D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B221A5C-2671-4621-AD6C-5A988E6E905D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B221A5C-2671-4621-AD6C-5A988E6E905D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B221A5C-2671-4621-AD6C-5A988E6E905D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
