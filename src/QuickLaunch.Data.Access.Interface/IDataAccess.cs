@@ -6,6 +6,6 @@ namespace QuickLaunch.Data.Access.Interface
 {
     public interface IDataAccess
     {
-        IDictionary<string, ILauchInformation> GetLaunchInformation();
+        IDictionary<string, ILaunchInformation> GetLaunchInformation();
     }
 }

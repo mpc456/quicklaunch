@@ -15,7 +15,7 @@ namespace QuickLaunch.Data.Access.File
     /// </summary>
     public class FileDataAcessFacade : IDataAccess
     {
-        private readonly IDictionary<string, ILauchInformation> data;
+        private readonly IDictionary<string, ILaunchInformation> data;
         private readonly IEnumerable<IFileDataAccess> dataAccessImplementations;
 
         public FileDataAcessFacade(IOptions<DataAccessFileConfig> config, IEnumerable<IFileDataAccess> dataAccessImplementations)
@@ -24,7 +24,7 @@ namespace QuickLaunch.Data.Access.File
             this.dataAccessImplementations = dataAccessImplementations;
         }
 
-        private IDictionary<string, ILauchInformation> LoadData(DataAccessFileConfig config)
+        private IDictionary<string, ILaunchInformation> LoadData(DataAccessFileConfig config)
         {
             var fileInfo = new FileInfo(config.FilePath);
 
@@ -33,6 +33,6 @@ namespace QuickLaunch.Data.Access.File
             return fileDataAccess.First().GetLaunchInformation(config);
         }
 
-        public IDictionary<string, ILauchInformation> GetLaunchInformation() => data;
+        public IDictionary<string, ILaunchInformation> GetLaunchInformation() => data;
     }
 }

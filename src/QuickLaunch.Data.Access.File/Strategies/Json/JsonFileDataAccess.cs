@@ -11,11 +11,19 @@ namespace QuickLaunch.Data.Access.File.Strategies.Json
     {
         public string SupportedFileExtension => "json";
 
-        public IDictionary<string, ILauchInformation> GetLaunchInformation(DataAccessFileConfig config)
+        public IDictionary<string, ILaunchInformation> GetLaunchInformation(DataAccessFileConfig config)
         {
             var jsonString = System.IO.File.ReadAllText(config.FilePath);
             var jsonContent = JsonSerializer.Deserialize<JsonDataModel>(jsonString);
-            return jsonContent.LaunchInformation as IDictionary<string, ILauchInformation>;
+            return jsonContent.LaunchInformation.Select(x => x as ILaunchInformation).ToDictionary(x => x.Name);
         }
     }
+
+    public class JsonDataModel
+    {
+        public List<LaunchInformation> LaunchInformation { get; set; }
+    }
 }
+
+//{
+//    "LaunchInformation":

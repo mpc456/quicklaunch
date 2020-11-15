@@ -1,6 +1,6 @@
 ﻿namespace QuickLaunch.Data.Model
 {
-    public class LaunchInformation : ILauchInformation
+    public class LaunchInformation : ILaunchInformation
     {
         public string Name { get; set; }
 

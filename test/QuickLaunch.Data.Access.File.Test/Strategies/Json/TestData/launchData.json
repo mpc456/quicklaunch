@@ -1,0 +1,12 @@
+﻿{
+  "LaunchInformation": [
+    {
+      "Name": "bbc",
+      "FileName": "https://www.bbc.co.uk/"
+    },
+    {
+      "Name": "reuters",
+      "FileName": "https://uk.reuters.com/"
+    }
+  ]
+}

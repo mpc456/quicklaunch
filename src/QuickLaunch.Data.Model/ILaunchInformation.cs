@@ -1,6 +1,6 @@
 ﻿namespace QuickLaunch.Data.Model
 {
-    public interface ILauchInformation
+    public interface ILaunchInformation
     {
         string Name { get; }
         string FileName { get; }

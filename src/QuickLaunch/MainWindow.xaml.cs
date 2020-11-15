@@ -29,8 +29,8 @@ namespace QuickLaunch
         private readonly IProcessRunner processRunner;
 
         private string CurrentTextBoxEntry = string.Empty;
-        private readonly IDictionary<string, ILauchInformation> LaunchInformation;
-        private ILauchInformation CurrentMatch;
+        private readonly IDictionary<string, ILaunchInformation> LaunchInformation;
+        private ILaunchInformation CurrentMatch;
 
         public MainWindow(IProcessRunner processRunner, IDataAccess dataAccess)
         {

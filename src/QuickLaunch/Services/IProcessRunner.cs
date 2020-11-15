@@ -4,6 +4,6 @@ namespace QuickLaunch.Services
 {
     public interface IProcessRunner
     {
-        void Run(ILauchInformation launchInformation);
+        void Run(ILaunchInformation launchInformation);
     }
 }

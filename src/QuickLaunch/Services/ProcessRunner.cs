@@ -7,7 +7,7 @@ namespace QuickLaunch.Services
 {
     public class ProcessRunner: IProcessRunner
     {
-        public void Run(ILauchInformation launchInformation)
+        public void Run(ILaunchInformation launchInformation)
         {
             var psi = new ProcessStartInfo
             {
