@@ -20,6 +20,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\QuickLaunch.Data.Access.InMemory\QuickLaunch.Data.Access.InMemory.csproj" />
+    <ProjectReference Include="..\QuickLaunch.Data.Access.Interface\QuickLaunch.Data.Access.Interface.csproj" />
+    <ProjectReference Include="..\QuickLaunch.Data.Model\QuickLaunch.Data.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Config\appSettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

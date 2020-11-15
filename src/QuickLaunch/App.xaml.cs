@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using QuickLaunch.Data.Access.InMemory;
+using QuickLaunch.Data.Access.Interface;
 using QuickLaunch.Services;
 
 namespace QuickLaunch
@@ -45,7 +47,7 @@ namespace QuickLaunch
         {
             var services = new ServiceCollection();
             services.AddTransient<IProcessRunner, ProcessRunner>();
-            services.AddTransient<IDataAccess, DataAccess>();
+            services.AddTransient<IDataAccess, InMemoryDataStore>();
             services.AddTransient(typeof(MainWindow));
             return services.BuildServiceProvider();
         }

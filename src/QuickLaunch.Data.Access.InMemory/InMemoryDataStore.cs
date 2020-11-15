@@ -1,14 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using QuickLaunch.Data.Access.Interface;
+using QuickLaunch.Data.Model;
+using System;
+using System.Collections.Generic;
 using System.Linq;
-using QuickLaunch.Model;
 
-namespace QuickLaunch.Services
+namespace QuickLaunch.Data.Access.InMemory
 {
-    public class DataAccess : IDataAccess
+    public class InMemoryDataStore : IDataAccess
     {
         private IDictionary<string, ILauchInformation> LaunchInfo;
 
-        public DataAccess()
+        public InMemoryDataStore()
         {
             LaunchInfo = GetLauchInformation().ToDictionary(i => i.Name.ToLower());
         }

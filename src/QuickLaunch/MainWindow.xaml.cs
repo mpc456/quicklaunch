@@ -16,7 +16,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
 using QuickLaunch.Services;
-using QuickLaunch.Model;
+using QuickLaunch.Data.Model;
+using QuickLaunch.Data.Access.Interface;
 
 namespace QuickLaunch
 {

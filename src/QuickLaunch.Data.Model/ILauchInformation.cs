@@ -1,4 +1,4 @@
-﻿namespace QuickLaunch.Model
+﻿namespace QuickLaunch.Data.Model
 {
     public interface ILauchInformation
     {
