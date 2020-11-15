@@ -57,8 +57,7 @@ namespace QuickLaunch
             {
                 TextBlock_Matches.Text = $"No matching entries";
                 TextBlock_Matches.Foreground = Brushes.Red;
-                TextBlock_Link.Text = string.Empty;
-                CurrentMatch = null;
+                ClearMatchInformation();
                 return;
             }
 
@@ -74,8 +73,7 @@ namespace QuickLaunch
 
             TextBlock_Matches.Text = $"Matches: {matchingEntries.Count()}";
             TextBlock_Matches.Foreground = Brushes.Blue;
-            TextBlock_Link.Text = string.Empty;
-            CurrentMatch = null;
+            ClearMatchInformation();
             return;
         }
 
@@ -92,8 +90,16 @@ namespace QuickLaunch
                 {
                     processRunner.Run(CurrentMatch);
                     this.WindowState = System.Windows.WindowState.Minimized;
+                    ClearMatchInformation();
+                    TextBox.Text = string.Empty;
                 }
             }
+        }
+
+        private void ClearMatchInformation()
+        {
+            TextBlock_Link.Text = string.Empty;
+            CurrentMatch = null;
         }
 
 }
