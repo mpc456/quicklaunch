@@ -29,6 +29,7 @@ namespace QuickLaunch
 
         private string CurrentTextBoxEntry = string.Empty;
         private readonly IDictionary<string, ILauchInformation> LaunchInformation;
+        private ILauchInformation CurrentMatch;
 
         public MainWindow(IProcessRunner processRunner, IDataAccess dataAccess)
         {
@@ -43,6 +44,30 @@ namespace QuickLaunch
             var textBox = sender as TextBox;
             
             CurrentTextBoxEntry = textBox.Text.ToLower();
+
+            var matchingEntries = LaunchInformation.Where(i => i.Key.Contains(CurrentTextBoxEntry));
+
+            if (!matchingEntries.Any())
+            {
+                TextBlock_Matches.Text = $"No matching entries";
+                TextBlock_Matches.Foreground = Brushes.Red;
+            }
+
+            if(matchingEntries.Count().Equals(1))
+            {
+                CurrentMatch = matchingEntries.Single().Value;
+
+                TextBlock_Matches.Text = $"Match: {CurrentMatch.Name}";
+                TextBlock_Matches.Foreground = Brushes.Green;
+                TextBlock_Link.Text = $"{CurrentMatch.FileName}";
+                return;
+            }
+
+            TextBlock_Matches.Text = $"Matches: {matchingEntries.Count()}";
+            TextBlock_Matches.Foreground = Brushes.Blue;
+            TextBlock_Link.Text = string.Empty;
+            CurrentMatch = null;
+            return;
         }
 
         private void TextBox_KeyDown(object sender, KeyEventArgs e)
@@ -54,9 +79,9 @@ namespace QuickLaunch
                 if (CurrentTextBoxEntry.Equals("exit"))
                     Application.Current.Shutdown();
 
-                if (LaunchInformation.ContainsKey(CurrentTextBoxEntry))
+                if(CurrentMatch != null)
                 {
-                    processRunner.Run(LaunchInformation[CurrentTextBoxEntry]);
+                    processRunner.Run(CurrentMatch);
                     this.WindowState = System.Windows.WindowState.Minimized;
                 }
             }

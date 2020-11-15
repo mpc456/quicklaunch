@@ -5,27 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuickLaunch"
         mc:Ignorable="d"
-        Height="80" 
-        Width="400">
+        Height="100" 
+        Width="600">
     <Window.InputBindings>
         <KeyBinding  Command="{Binding MyFocusCommand}" Key="W" Modifiers="Alt"/>
     </Window.InputBindings>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
+            <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
-        <TextBox Grid.Row="0" 
-                 HorizontalAlignment="Left"
-                 Height="23"
-                 Margin="10"
-                 TextWrapping="Wrap"
-                 Text=""
-                 VerticalAlignment="Center"
-                 Width="200"
-                 x:Name="TextBox"
-                 TextChanged="TextBox_TextChanged"
-                 KeyDown="TextBox_KeyDown"/>
+        <TextBox x:Name="TextBox"
+            Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
+            HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                 Height="50"
+                 FontSize="30"
+            Margin="10"
+            TextChanged="TextBox_TextChanged"
+            KeyDown="TextBox_KeyDown"/>
+
+        <TextBlock x:Name="TextBlock_Matches" Grid.Row="0" Grid.Column="1" Text="Start Typing..." Margin="5"/>
+        <TextBlock x:Name="TextBlock_Link" Grid.Row="1" Grid.Column="1" Margin="5"/>
 
     </Grid>
 </Window>
