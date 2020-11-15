@@ -95,6 +95,13 @@ namespace QuickLaunch
                     TextBox.Text = string.Empty;
                 }
             }
+
+            if(e.Key == Key.Escape)
+            {
+                this.WindowState = System.Windows.WindowState.Minimized;
+                ClearMatchInformation();
+                TextBox.Text = string.Empty;
+            }
         }
 
         private void ClearMatchInformation()
