@@ -10,6 +10,8 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
+    <PackageReference Include="NLog.Extensions.Logging" Version="1.6.5" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,6 +27,11 @@
     <None Update="Config\launchData.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Config\nlogSettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties config_4nlogsettings_1json__JsonSchema="https://nlog-project.org/schemas/appsettings.schema.json" /></VisualStudio></ProjectExtensions>
 
 </Project>

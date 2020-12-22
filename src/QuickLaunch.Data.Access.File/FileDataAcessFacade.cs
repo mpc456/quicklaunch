@@ -7,6 +7,7 @@ using System.Linq;
 using QuickLaunch.Data.Access.File.Implementation;
 using QuickLaunch.Data.Access.Interface.Services;
 using QuickLaunch.Data.Access.Interface.DataModel;
+using Microsoft.Extensions.Logging;
 
 namespace QuickLaunch.Data.Access.File
 {
@@ -18,12 +19,16 @@ namespace QuickLaunch.Data.Access.File
         private readonly IDictionary<string, ILaunchInformation> data;
         private readonly IDataAccessFileConfig config;
         private readonly IEnumerable<IFileDataAccess> dataAccessImplementations;
+        private readonly ILogger<FileDataAcessFacade> logger;
         private readonly IFileDataAccess fileDataAccess;
 
-        public FileDataAcessFacade(IDataAccessFileConfig config, IEnumerable<IFileDataAccess> dataAccessImplementations)
+        public FileDataAcessFacade(IDataAccessFileConfig config, 
+            IEnumerable<IFileDataAccess> dataAccessImplementations, 
+            ILogger<FileDataAcessFacade> logger)
         {
             this.config = config;
             this.dataAccessImplementations = dataAccessImplementations;
+            this.logger = logger;
             this.fileDataAccess = GetDataAccess(config);
             this.data = fileDataAccess.ReadFromFile();
         }
@@ -34,7 +39,8 @@ namespace QuickLaunch.Data.Access.File
         {
             if(data.ContainsKey(info.Name))
             {
-                //Log error and return
+                logger.LogError($"key:{info.Name} already exists");
+                return;
             }
             data.Add(info.Name, info);
         }
@@ -43,7 +49,8 @@ namespace QuickLaunch.Data.Access.File
         {
             if (!data.ContainsKey(info.Name))
             {
-                //Log error and return
+                logger.LogError($"key:{info.Name} not found");
+                return;
             }
             data[info.Name] = info;
         }

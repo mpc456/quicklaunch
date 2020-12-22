@@ -1,4 +1,5 @@
-﻿using QuickLaunch.Data.Access.Interface.DataModel;
+﻿using Microsoft.Extensions.Logging;
+using QuickLaunch.Data.Access.Interface.DataModel;
 using QuickLaunch.Data.Access.Interface.Services;
 using System;
 using System.Collections.Generic;
@@ -9,18 +10,20 @@ namespace QuickLaunch.Data.Access.InMemory
     public class InMemoryDataStore : IDataAccess
     {
         private readonly IDictionary<string, ILaunchInformation> LaunchInfo;
+        private readonly ILogger<InMemoryDataStore> logger;
 
-        public InMemoryDataStore()
+        public InMemoryDataStore(ILogger<InMemoryDataStore> logger)
         {
             LaunchInfo = GetLauchInformation().ToDictionary(i => i.Name.ToLower());
+            this.logger = logger;
         }
 
         public void AddLaunchInfo(ILaunchInformation info)
         {
             if(LaunchInfo.ContainsKey(info.Name))
             {
-                //Log error and return
-
+                logger.LogError($"key:{info.Name} already exists");
+                return;
             }
             LaunchInfo.Add(info.Name,info);
         }
@@ -31,7 +34,8 @@ namespace QuickLaunch.Data.Access.InMemory
         {
             if (!LaunchInfo.ContainsKey(info.Name))
             {
-                //Log error and return
+                logger.LogError($"key:{info.Name} not found");
+                return;
             }
 
             LaunchInfo[info.Name] = info;

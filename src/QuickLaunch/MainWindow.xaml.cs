@@ -18,6 +18,7 @@ using System.Diagnostics;
 using QuickLaunch.Services;
 using QuickLaunch.Data.Access.Interface.Services;
 using QuickLaunch.Data.Access.Interface.DataModel;
+using Microsoft.Extensions.Logging;
 
 namespace QuickLaunch
 {
@@ -27,16 +28,21 @@ namespace QuickLaunch
     public partial class MainWindow : Window
     {
         private readonly IProcessRunner processRunner;
-
+        private readonly ILogger<MainWindow> logger;
         private readonly IDictionary<string, ILaunchInformation> LaunchInformation;
 
         private List<KeyValuePair<string, ILaunchInformation>> CurrentMatchingEntries { get; set; }
 
-        public MainWindow(IProcessRunner processRunner, IDataAccess dataAccess)
+        public MainWindow(IProcessRunner processRunner, 
+            IDataAccess dataAccess, 
+            ILogger<MainWindow> logger)
         {
             InitializeComponent();
             TextBox.Focus();
             this.processRunner = processRunner;
+            this.logger = logger;
+            logger.LogInformation("Starting");
+
             LaunchInformation = dataAccess.GetLaunchInformation();
         }
 
@@ -84,20 +90,8 @@ namespace QuickLaunch
 
             if (e.Key == Key.Return)
             {
+                TextBox_KeyDown_Handle_Return(userInput);
                 e.Handled = true;
-
-                if (userInput.Equals("exit") || userInput.Equals("quit"))
-                    Application.Current.Shutdown();
-
-                var matchedEntry = LaunchInformation.SingleOrDefault(i => i.Key.Contains(userInput));
-
-                if (matchedEntry.Value != null)
-                {
-                    processRunner.Run(matchedEntry.Value);
-                    this.WindowState = System.Windows.WindowState.Minimized;
-                    TextBox.Text = string.Empty;
-                    UpdateScreen();
-                }
             }
 
             if(e.Key == Key.Escape)
@@ -108,6 +102,21 @@ namespace QuickLaunch
             }
         }
 
+        private void TextBox_KeyDown_Handle_Return(string userInput)
+        {
+            if (userInput.Equals("exit") || userInput.Equals("quit"))
+                Application.Current.Shutdown();
 
+            var matchedEntry = LaunchInformation.SingleOrDefault(i => i.Key.Contains(userInput));
+
+            if (matchedEntry.Value != null)
+            {
+                processRunner.Run(matchedEntry.Value);
+                this.WindowState = System.Windows.WindowState.Minimized;
+                TextBox.Text = string.Empty;
+                UpdateScreen();
+                return;
+            }
+        }
     }
 }
