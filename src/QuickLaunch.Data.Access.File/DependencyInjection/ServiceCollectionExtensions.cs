@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using QuickLaunch.Data.Access.File.Implementation;
 using QuickLaunch.Data.Access.File.Strategies.Ini;
 using QuickLaunch.Data.Access.File.Strategies.Json;
-using QuickLaunch.Data.Access.Interface;
+using QuickLaunch.Data.Access.Interface.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;

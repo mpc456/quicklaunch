@@ -1,4 +1,4 @@
-﻿using QuickLaunch.Data.Model;
+﻿using QuickLaunch.Data.Access.Interface.DataModel;
 using System.Collections.Generic;
 
 namespace QuickLaunch.Data.Access.File.Implementation

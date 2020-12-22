@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using QuickLaunch.Data.Access.File.Implementation;
-using QuickLaunch.Data.Model;
+using QuickLaunch.Data.Access.Interface.DataModel;
 using System;
 using System.Collections.Generic;
 using System.Text;

@@ -1,5 +1,5 @@
-﻿using QuickLaunch.Data.Access.Interface;
-using QuickLaunch.Data.Model;
+﻿using QuickLaunch.Data.Access.Interface.DataModel;
+using QuickLaunch.Data.Access.Interface.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;

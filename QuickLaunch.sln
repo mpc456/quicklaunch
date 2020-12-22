@@ -12,15 +12,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickLaunch.Data.Model", "src\QuickLaunch.Data.Model\QuickLaunch.Data.Model.csproj", "{52EDD2FE-6C8A-4E73-8756-D6B1216F0C19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickLaunch.Data.Access.Interface", "src\QuickLaunch.Data.Access.Interface\QuickLaunch.Data.Access.Interface.csproj", "{244957CA-FA3A-43AB-876B-5BEA5FD2D960}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickLaunch.Data.Access.Interface", "src\QuickLaunch.Data.Access.Interface\QuickLaunch.Data.Access.Interface.csproj", "{244957CA-FA3A-43AB-876B-5BEA5FD2D960}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickLaunch.Data.Access.InMemory", "src\QuickLaunch.Data.Access.InMemory\QuickLaunch.Data.Access.InMemory.csproj", "{95203870-772E-46D8-A8FD-BF79FA41B346}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickLaunch.Data.Access.InMemory", "src\QuickLaunch.Data.Access.InMemory\QuickLaunch.Data.Access.InMemory.csproj", "{95203870-772E-46D8-A8FD-BF79FA41B346}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickLaunch.Data.Access.File", "src\QuickLaunch.Data.Access.File\QuickLaunch.Data.Access.File.csproj", "{1B221A5C-2671-4621-AD6C-5A988E6E905D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickLaunch.Data.Access.File", "src\QuickLaunch.Data.Access.File\QuickLaunch.Data.Access.File.csproj", "{1B221A5C-2671-4621-AD6C-5A988E6E905D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickLaunch.Data.Access.File.Test", "test\QuickLaunch.Data.Access.File.Test\QuickLaunch.Data.Access.File.Test.csproj", "{EEB098A6-D57A-4172-9738-E5BE0D21AE1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickLaunch.Data.Access.File.Test", "test\QuickLaunch.Data.Access.File.Test\QuickLaunch.Data.Access.File.Test.csproj", "{EEB098A6-D57A-4172-9738-E5BE0D21AE1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,10 +30,6 @@ Global
 		{F7236B5C-B024-4998-8A38-C604BA3E3A23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7236B5C-B024-4998-8A38-C604BA3E3A23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7236B5C-B024-4998-8A38-C604BA3E3A23}.Release|Any CPU.Build.0 = Release|Any CPU
-		{52EDD2FE-6C8A-4E73-8756-D6B1216F0C19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{52EDD2FE-6C8A-4E73-8756-D6B1216F0C19}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{52EDD2FE-6C8A-4E73-8756-D6B1216F0C19}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{52EDD2FE-6C8A-4E73-8756-D6B1216F0C19}.Release|Any CPU.Build.0 = Release|Any CPU
 		{244957CA-FA3A-43AB-876B-5BEA5FD2D960}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{244957CA-FA3A-43AB-876B-5BEA5FD2D960}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{244957CA-FA3A-43AB-876B-5BEA5FD2D960}.Release|Any CPU.ActiveCfg = Release|Any CPU

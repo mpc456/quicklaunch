@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuickLaunch"
         mc:Ignorable="d"
-        Height="100" 
+        Height="500" 
         Width="600">
     <Window.InputBindings>
         <KeyBinding  Command="{Binding MyFocusCommand}" Key="W" Modifiers="Alt"/>
     </Window.InputBindings>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -23,7 +23,6 @@
         <TextBox x:Name="TextBox"
             Grid.Row="0"
             Grid.Column="0"
-            Grid.RowSpan="2"
             HorizontalAlignment="Stretch" VerticalAlignment="Center"
             Height="30"
             FontSize="20"
@@ -32,8 +31,10 @@
             TextChanged="TextBox_TextChanged"
             KeyDown="TextBox_KeyDown"/>
 
-        <TextBlock x:Name="TextBlock_Matches" Grid.Row="0" Grid.Column="1" Text="Start Typing..." Margin="5"/>
-        <TextBlock x:Name="TextBlock_Link" Grid.Row="1" Grid.Column="1" Margin="5"/>
+        <TextBlock x:Name="Instructions" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"/>
+
+        <TextBlock x:Name="Matches" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <!--<TextBlock x:Name="Current Matches"/>-->
 
     </Grid>
 </Window>

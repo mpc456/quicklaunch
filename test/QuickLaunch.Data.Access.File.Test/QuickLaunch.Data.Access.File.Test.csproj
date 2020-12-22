@@ -15,7 +15,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\QuickLaunch.Data.Access.File\QuickLaunch.Data.Access.File.csproj" />
-    <ProjectReference Include="..\..\src\QuickLaunch.Data.Model\QuickLaunch.Data.Model.csproj" />
   </ItemGroup>
 
   <ItemGroup>

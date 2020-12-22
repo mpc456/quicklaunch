@@ -16,8 +16,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
 using QuickLaunch.Services;
-using QuickLaunch.Data.Model;
-using QuickLaunch.Data.Access.Interface;
+using QuickLaunch.Data.Access.Interface.Services;
+using QuickLaunch.Data.Access.Interface.DataModel;
 
 namespace QuickLaunch
 {
@@ -28,9 +28,9 @@ namespace QuickLaunch
     {
         private readonly IProcessRunner processRunner;
 
-        private string CurrentTextBoxEntry = string.Empty;
         private readonly IDictionary<string, ILaunchInformation> LaunchInformation;
-        private ILaunchInformation CurrentMatch;
+
+        private List<KeyValuePair<string, ILaunchInformation>> CurrentMatchingEntries { get; set; }
 
         public MainWindow(IProcessRunner processRunner, IDataAccess dataAccess)
         {
@@ -42,73 +42,72 @@ namespace QuickLaunch
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            var textBox = sender as TextBox;
-            
-            CurrentTextBoxEntry = textBox.Text.ToLower();
+            UpdateScreen();
+        }
 
-            if(CurrentTextBoxEntry.Equals("exit"))
+        private void UpdateScreen()
+        {
+            var userInput = TextBox.Text;
+
+            if (userInput.Equals("exit") || userInput.Equals("quit"))
             {
-                TextBlock_Matches.Text = "Close application";
+                Instructions.Text = "Press enter to close application";
                 return;
             }
 
-            var matchingEntries = LaunchInformation.Where(i => i.Key.Contains(CurrentTextBoxEntry));
+            var matches = LaunchInformation.Where(i => i.Key.Contains(userInput)).ToList();
 
-            if (!matchingEntries.Any())
+            Matches.Text = $"Matches: [{matches.Count}]";
+
+            if (matches.Count.Equals(0))
             {
-                TextBlock_Matches.Text = $"No matching entries";
-                TextBlock_Matches.Foreground = Brushes.Red;
-                ClearMatchInformation();
-                return;
+                Instructions.Text = "Enter a valid launch entry";
+                Matches.Foreground = Brushes.Red;
             }
 
-            if(matchingEntries.Count().Equals(1))
+            if(matches.Count.Equals(1))
             {
-                CurrentMatch = matchingEntries.Single().Value;
-
-                TextBlock_Matches.Text = $"Match: {CurrentMatch.Name}";
-                TextBlock_Matches.Foreground = Brushes.Green;
-                TextBlock_Link.Text = $"{CurrentMatch.FileName}";
-                return;
+                Instructions.Text = $"Press enter to go to '{matches.Single().Value.Name}'";
+                Matches.Foreground = Brushes.Green;
             }
 
-            TextBlock_Matches.Text = $"Matches: {matchingEntries.Count()}";
-            TextBlock_Matches.Foreground = Brushes.Blue;
-            ClearMatchInformation();
-            return;
+            if(matches.Count > 1)
+            {
+                Matches.Foreground = Brushes.Blue;
+                Instructions.Text = "Continue typing";
+            }
         }
 
         private void TextBox_KeyDown(object sender, KeyEventArgs e)
         {
+            var userInput = TextBox.Text;
+
             if (e.Key == Key.Return)
             {
                 e.Handled = true;
 
-                if (CurrentTextBoxEntry.Equals("exit"))
+                if (userInput.Equals("exit") || userInput.Equals("quit"))
                     Application.Current.Shutdown();
 
-                if(CurrentMatch != null)
+                var matchedEntry = LaunchInformation.SingleOrDefault(i => i.Key.Contains(userInput));
+
+                if (matchedEntry.Value != null)
                 {
-                    processRunner.Run(CurrentMatch);
+                    processRunner.Run(matchedEntry.Value);
                     this.WindowState = System.Windows.WindowState.Minimized;
-                    ClearMatchInformation();
                     TextBox.Text = string.Empty;
+                    UpdateScreen();
                 }
             }
 
             if(e.Key == Key.Escape)
             {
                 this.WindowState = System.Windows.WindowState.Minimized;
-                ClearMatchInformation();
                 TextBox.Text = string.Empty;
+                UpdateScreen();
             }
         }
 
-        private void ClearMatchInformation()
-        {
-            TextBlock_Link.Text = string.Empty;
-            CurrentMatch = null;
-        }
 
-}
+    }
 }
