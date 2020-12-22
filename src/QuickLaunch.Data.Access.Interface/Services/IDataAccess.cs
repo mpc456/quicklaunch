@@ -7,5 +7,7 @@ namespace QuickLaunch.Data.Access.Interface.Services
     public interface IDataAccess
     {
         IDictionary<string, ILaunchInformation> GetLaunchInformation();
+        void AddLaunchInfo(ILaunchInformation info);
+        void UpdateLaunchInfo(ILaunchInformation info);
     }
 }

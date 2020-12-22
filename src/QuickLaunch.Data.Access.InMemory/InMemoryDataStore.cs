@@ -8,14 +8,34 @@ namespace QuickLaunch.Data.Access.InMemory
 {
     public class InMemoryDataStore : IDataAccess
     {
-        private IDictionary<string, ILaunchInformation> LaunchInfo;
+        private readonly IDictionary<string, ILaunchInformation> LaunchInfo;
 
         public InMemoryDataStore()
         {
             LaunchInfo = GetLauchInformation().ToDictionary(i => i.Name.ToLower());
         }
 
+        public void AddLaunchInfo(ILaunchInformation info)
+        {
+            if(LaunchInfo.ContainsKey(info.Name))
+            {
+                //Log error and return
+
+            }
+            LaunchInfo.Add(info.Name,info);
+        }
+
         public IDictionary<string, ILaunchInformation> GetLaunchInformation() => LaunchInfo;
+
+        public void UpdateLaunchInfo(ILaunchInformation info)
+        {
+            if (!LaunchInfo.ContainsKey(info.Name))
+            {
+                //Log error and return
+            }
+
+            LaunchInfo[info.Name] = info;
+        }
 
         private IEnumerable<ILaunchInformation> GetLauchInformation()
         {

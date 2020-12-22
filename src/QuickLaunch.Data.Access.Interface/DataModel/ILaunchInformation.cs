@@ -6,5 +6,6 @@
         string FileName { get; }
         string Arguments { get; }
         string Notes { get; }
+        int LaunchCount { get; set; }
     }
 }

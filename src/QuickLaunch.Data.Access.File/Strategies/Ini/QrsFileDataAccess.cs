@@ -9,9 +9,16 @@ namespace QuickLaunch.Data.Access.File.Strategies.Ini
 {
     public class QrsFileDataAccess : IFileDataAccess
     {
+        private readonly IDataAccessFileConfig config;
+
         public string SupportedFileExtension => ".qrs";
 
-        public IDictionary<string, ILaunchInformation> GetLaunchInformation(IDataAccessFileConfig config)
+        public QrsFileDataAccess(IDataAccessFileConfig config)
+        {
+            this.config = config;
+        }
+
+        public IDictionary<string, ILaunchInformation> ReadFromFile()
         {
             var configuration = new ConfigurationBuilder()
                 .AddIniFile(config.FilePath)
@@ -30,6 +37,11 @@ namespace QuickLaunch.Data.Access.File.Strategies.Ini
                 data.Add(launchInformation.Name, launchInformation);
             }
             return data;
+        }
+
+        public void WriteToFile(IDictionary<string, ILaunchInformation> info)
+        {
+            throw new NotImplementedException();
         }
     }
 }

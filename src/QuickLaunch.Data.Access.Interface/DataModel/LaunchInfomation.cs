@@ -9,5 +9,7 @@
         public string Arguments { get; set; }
 
         public string Notes { get; set; }
+
+        public int LaunchCount { get; set; }
     }
 }

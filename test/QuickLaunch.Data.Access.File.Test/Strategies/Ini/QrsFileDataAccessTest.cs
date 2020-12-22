@@ -12,9 +12,10 @@ namespace QuickLaunch.Data.Access.File.Test.Strategies.Ini
         [TestMethod]
         public void CanReadQrsFile()
         {
-            var dataAccess = new QrsFileDataAccess();
+            
             var config = new DataAccessFileConfig { FilePath = "Strategies/Ini/TestData/magicWords.qrs" };
-            var launchData = dataAccess.GetLaunchInformation(config);
+            var dataAccess = new QrsFileDataAccess(config);
+            var launchData = dataAccess.ReadFromFile();
 
             Assert.AreEqual(2, launchData.Count);
             Assert.IsTrue(launchData.ContainsKey("babel"));

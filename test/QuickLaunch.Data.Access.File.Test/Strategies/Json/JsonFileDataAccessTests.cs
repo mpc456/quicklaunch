@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using QuickLaunch.Data.Access.File.Strategies.Json;
 
-namespace QuickLaunch.Data.Access.File.Test
+namespace QuickLaunch.Data.Access.File.Test.Strategies.Json
 {
     [TestClass]
     public class JsonFileDataAccessTests
@@ -9,9 +9,9 @@ namespace QuickLaunch.Data.Access.File.Test
         [TestMethod]
         public void CanParseJsonData()
         {
-            var dataAccess = new JsonFileDataAccess();
             var config = new DataAccessFileConfig { FilePath = "Strategies/Json/TestData/launchData.json" };
-            var launchData = dataAccess.GetLaunchInformation(config);
+            var dataAccess = new JsonFileDataAccess(config);
+            var launchData = dataAccess.ReadFromFile();
 
             Assert.AreEqual(2, launchData.Count);
             Assert.IsTrue(launchData.ContainsKey("bbg"));
