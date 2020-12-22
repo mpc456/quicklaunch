@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -13,8 +14,8 @@ namespace QuickLaunch
     /// </summary>
     public class BootStrapper
     {
-        public IServiceProvider ServiceProvider { get; }
-        public IConfiguration Configuration { get; }
+        [NotNull] public IServiceProvider ServiceProvider { get; }
+        [NotNull] public IConfiguration Configuration { get; }
 
         public BootStrapper()
         {

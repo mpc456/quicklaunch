@@ -1,5 +1,7 @@
-﻿using QuickLaunch.Data.Access.File.Implementation;
+﻿using JetBrains.Annotations;
+using QuickLaunch.Data.Access.File.Implementation;
 using QuickLaunch.Data.Access.Interface.DataModel;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -15,9 +17,9 @@ namespace QuickLaunch.Data.Access.File.Strategies.Json
 
         public string SupportedFileExtension => ".json";
 
-        public JsonFileDataAccess(IDataAccessFileConfig config)
+        public JsonFileDataAccess([NotNull] IDataAccessFileConfig config)
         {
-            this.config = config;
+            this.config = config ?? throw new ArgumentNullException(nameof(config));
         }
 
         public IDictionary<string, ILaunchInformation> ReadFromFile()

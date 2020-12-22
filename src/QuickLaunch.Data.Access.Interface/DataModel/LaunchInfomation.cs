@@ -10,6 +10,6 @@
 
         public string Notes { get; set; }
 
-        public int LaunchCount { get; set; }
+        public int LaunchCount { get; set; } = 0;
     }
 }

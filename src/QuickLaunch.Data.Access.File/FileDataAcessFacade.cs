@@ -8,6 +8,7 @@ using QuickLaunch.Data.Access.File.Implementation;
 using QuickLaunch.Data.Access.Interface.Services;
 using QuickLaunch.Data.Access.Interface.DataModel;
 using Microsoft.Extensions.Logging;
+using JetBrains.Annotations;
 
 namespace QuickLaunch.Data.Access.File
 {
@@ -18,17 +19,17 @@ namespace QuickLaunch.Data.Access.File
     {
         private readonly IDictionary<string, ILaunchInformation> data;
         private readonly IDataAccessFileConfig config;
-        private readonly IEnumerable<IFileDataAccess> dataAccessImplementations;
+        private readonly IEnumerable<IFileDataAccess> implementations;
         private readonly ILogger<FileDataAcessFacade> logger;
         private readonly IFileDataAccess fileDataAccess;
 
-        public FileDataAcessFacade(IDataAccessFileConfig config, 
-            IEnumerable<IFileDataAccess> dataAccessImplementations, 
-            ILogger<FileDataAcessFacade> logger)
+        public FileDataAcessFacade([NotNull] IDataAccessFileConfig config,
+            [NotNull] IEnumerable<IFileDataAccess> implementations,
+            [NotNull] ILogger<FileDataAcessFacade> logger)
         {
-            this.config = config;
-            this.dataAccessImplementations = dataAccessImplementations;
-            this.logger = logger;
+            this.config = config ?? throw new ArgumentNullException(nameof(config));
+            this.implementations = implementations ?? throw new ArgumentNullException(nameof(implementations));
+            this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
             this.fileDataAccess = GetDataAccess(config);
             this.data = fileDataAccess.ReadFromFile();
         }
@@ -64,7 +65,7 @@ namespace QuickLaunch.Data.Access.File
         private IFileDataAccess GetDataAccess(IDataAccessFileConfig config)
         {
             var fileInfo = new FileInfo(config.FilePath);
-            var fileDataAccess = dataAccessImplementations.Where(d => d.SupportedFileExtension.Equals(fileInfo.Extension));
+            var fileDataAccess = implementations.Where(d => d.SupportedFileExtension.Equals(fileInfo.Extension));
             return fileDataAccess.First();
         }
     }

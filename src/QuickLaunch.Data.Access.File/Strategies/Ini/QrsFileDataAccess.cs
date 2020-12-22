@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using JetBrains.Annotations;
+using Microsoft.Extensions.Configuration;
 using QuickLaunch.Data.Access.File.Implementation;
 using QuickLaunch.Data.Access.Interface.DataModel;
 using System;
@@ -13,9 +14,9 @@ namespace QuickLaunch.Data.Access.File.Strategies.Ini
 
         public string SupportedFileExtension => ".qrs";
 
-        public QrsFileDataAccess(IDataAccessFileConfig config)
+        public QrsFileDataAccess([NotNull] IDataAccessFileConfig config)
         {
-            this.config = config;
+            this.config = config ?? throw new ArgumentNullException(nameof(config));
         }
 
         public IDictionary<string, ILaunchInformation> ReadFromFile()

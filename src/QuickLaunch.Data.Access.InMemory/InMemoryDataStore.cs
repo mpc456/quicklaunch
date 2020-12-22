@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using JetBrains.Annotations;
+using Microsoft.Extensions.Logging;
 using QuickLaunch.Data.Access.Interface.DataModel;
 using QuickLaunch.Data.Access.Interface.Services;
 using System;
@@ -12,10 +13,10 @@ namespace QuickLaunch.Data.Access.InMemory
         private readonly IDictionary<string, ILaunchInformation> LaunchInfo;
         private readonly ILogger<InMemoryDataStore> logger;
 
-        public InMemoryDataStore(ILogger<InMemoryDataStore> logger)
+        public InMemoryDataStore([NotNull] ILogger<InMemoryDataStore> logger)
         {
             LaunchInfo = GetLauchInformation().ToDictionary(i => i.Name.ToLower());
-            this.logger = logger;
+            this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public void AddLaunchInfo(ILaunchInformation info)

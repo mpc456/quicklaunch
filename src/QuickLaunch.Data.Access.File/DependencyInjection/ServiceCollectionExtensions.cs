@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using JetBrains.Annotations;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using QuickLaunch.Data.Access.File.Implementation;
 using QuickLaunch.Data.Access.File.Strategies.Ini;
@@ -12,13 +13,13 @@ namespace QuickLaunch.Data.Access.File.DependencyInjection
 {
     public static class ServiceCollectionExtensions
     {
-        public static void AddFileDataAccess(this IServiceCollection services, IConfiguration config)
+        public static void AddFileDataAccess(this IServiceCollection services, [NotNull] IConfiguration config)
         {
             var fileDataAccesConfig = config.GetSection(nameof(DataAccessFileConfig)).Get<DataAccessFileConfig>();
             services.AddFileDataAccess(fileDataAccesConfig);
         }
 
-        public static void AddFileDataAccess(this IServiceCollection services, DataAccessFileConfig config)
+        public static void AddFileDataAccess(this IServiceCollection services, [NotNull] DataAccessFileConfig config)
         {
             services.AddSingleton<IDataAccessFileConfig>(sp => config);
 
