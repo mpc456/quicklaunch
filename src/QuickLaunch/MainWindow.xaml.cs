@@ -44,6 +44,7 @@ namespace QuickLaunch
             logger.LogInformation("Starting");
 
             LaunchInformation = dataAccess.GetLaunchInformation();
+            UpdateScreen();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -53,7 +54,7 @@ namespace QuickLaunch
 
         private void UpdateScreen()
         {
-            var userInput = TextBox.Text;
+            var userInput = TextBox.Text ?? string.Empty;
 
             if (userInput.Equals("exit") || userInput.Equals("quit"))
             {
@@ -69,18 +70,21 @@ namespace QuickLaunch
             {
                 Instructions.Text = "Enter a valid launch entry";
                 Matches.Foreground = Brushes.Red;
+                CurrentMatches.Text = string.Join(Environment.NewLine, LaunchInformation.Select(m => m.Key));
             }
 
             if(matches.Count.Equals(1))
             {
                 Instructions.Text = $"Press enter to go to '{matches.Single().Value.Name}'";
                 Matches.Foreground = Brushes.Green;
+                CurrentMatches.Text = string.Join(Environment.NewLine, matches.Select(m => m.Key));
             }
 
             if(matches.Count > 1)
             {
                 Matches.Foreground = Brushes.Blue;
                 Instructions.Text = "Continue typing";
+                CurrentMatches.Text = string.Join(Environment.NewLine, matches.Select(m => m.Key));
             }
         }
 
@@ -98,8 +102,10 @@ namespace QuickLaunch
             {
                 this.WindowState = System.Windows.WindowState.Minimized;
                 TextBox.Text = string.Empty;
-                UpdateScreen();
             }
+
+            UpdateScreen();
+
         }
 
         private void TextBox_KeyDown_Handle_Return(string userInput)
