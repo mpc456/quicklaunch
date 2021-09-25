@@ -1,4 +1,4 @@
-﻿using QuickLaunch.Data.Access.Interface.DataModel;
+﻿using QuickLaunch.Data.Access.Abstractions.Interfaces.Model;
 
 namespace QuickLaunch.Services
 {

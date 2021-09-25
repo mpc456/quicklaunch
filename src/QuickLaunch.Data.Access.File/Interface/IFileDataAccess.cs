@@ -1,12 +1,12 @@
 ﻿using JetBrains.Annotations;
-using QuickLaunch.Data.Access.Interface.DataModel;
-using QuickLaunch.Data.Access.Interface.Services;
+using QuickLaunch.Data.Access.Abstractions.Interfaces.Model;
 using System.Collections.Generic;
 
 namespace QuickLaunch.Data.Access.File.Interface
 {
     public interface IFileDataAccess
     {
+        [NotNull]
         string SupportedFileExtension { get; }
 
         [NotNull]

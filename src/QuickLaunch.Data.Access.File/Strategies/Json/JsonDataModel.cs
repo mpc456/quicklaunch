@@ -1,4 +1,4 @@
-﻿using QuickLaunch.Data.Access.Interface.DataModel;
+﻿using QuickLaunch.Data.Access.Abstractions.Model;
 using System.Collections.Generic;
 
 namespace QuickLaunch.Data.Access.File.Strategies.Json

@@ -1,7 +1,7 @@
-﻿using System;
+﻿using QuickLaunch.Data.Access.Abstractions.Interfaces.Model;
+using System;
 using System.Diagnostics;
 using System.Text;
-using QuickLaunch.Data.Access.Interface.DataModel;
 
 namespace QuickLaunch.Services
 {

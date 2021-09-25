@@ -1,7 +1,8 @@
 ﻿using JetBrains.Annotations;
 using Microsoft.Extensions.Logging;
-using QuickLaunch.Data.Access.Interface.DataModel;
-using QuickLaunch.Data.Access.Interface.Services;
+using QuickLaunch.Data.Access.Abstractions.Interfaces.Model;
+using QuickLaunch.Data.Access.Abstractions.Interfaces.Services;
+using QuickLaunch.Data.Access.Abstractions.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;

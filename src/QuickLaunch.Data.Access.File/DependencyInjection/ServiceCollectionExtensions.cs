@@ -1,10 +1,10 @@
 ﻿using JetBrains.Annotations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using QuickLaunch.Data.Access.Abstractions.Interfaces.Services;
 using QuickLaunch.Data.Access.File.Interface;
 using QuickLaunch.Data.Access.File.Strategies.Ini;
 using QuickLaunch.Data.Access.File.Strategies.Json;
-using QuickLaunch.Data.Access.Interface.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;

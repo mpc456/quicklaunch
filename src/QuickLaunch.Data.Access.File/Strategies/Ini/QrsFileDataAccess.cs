@@ -1,7 +1,8 @@
 ﻿using JetBrains.Annotations;
 using Microsoft.Extensions.Configuration;
+using QuickLaunch.Data.Access.Abstractions.Interfaces.Model;
+using QuickLaunch.Data.Access.Abstractions.Model;
 using QuickLaunch.Data.Access.File.Interface;
-using QuickLaunch.Data.Access.Interface.DataModel;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,19 +11,20 @@ namespace QuickLaunch.Data.Access.File.Strategies.Ini
 {
     public class QrsFileDataAccess : IFileDataAccess
     {
-        private readonly IDataAccessFileConfig config;
+        [NotNull] private readonly IDataAccessFileConfig _config;
 
-        public string SupportedFileExtension => ".qrs";
+        [NotNull] public string SupportedFileExtension => ".qrs";
 
         public QrsFileDataAccess([NotNull] IDataAccessFileConfig config)
         {
-            this.config = config ?? throw new ArgumentNullException(nameof(config));
+            this._config = config ?? throw new ArgumentNullException(nameof(config));
         }
 
+        [NotNull]
         public IDictionary<string, ILaunchInformation> ReadFromFile()
         {
             var configuration = new ConfigurationBuilder()
-                .AddIniFile(config.FilePath)
+                .AddIniFile(_config.FilePath)
                 .Build();
 
             var data = new Dictionary<string, ILaunchInformation>();

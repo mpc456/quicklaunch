@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
 using QuickLaunch.Data.Access.InMemory;
-using QuickLaunch.Data.Access.Interface;
 
 namespace QuickLaunch
 {

@@ -18,7 +18,6 @@
   <ItemGroup>
     <ProjectReference Include="..\QuickLaunch.Data.Access.File\QuickLaunch.Data.Access.File.csproj" />
     <ProjectReference Include="..\QuickLaunch.Data.Access.InMemory\QuickLaunch.Data.Access.InMemory.csproj" />
-    <ProjectReference Include="..\QuickLaunch.Data.Access.Interface\QuickLaunch.Data.Access.Interface.csproj" />
   </ItemGroup>
 
   <ItemGroup>

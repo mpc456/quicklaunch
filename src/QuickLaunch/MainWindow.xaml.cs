@@ -16,9 +16,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
 using QuickLaunch.Services;
-using QuickLaunch.Data.Access.Interface.Services;
-using QuickLaunch.Data.Access.Interface.DataModel;
 using Microsoft.Extensions.Logging;
+using QuickLaunch.Data.Access.Abstractions.Interfaces.Model;
+using QuickLaunch.Data.Access.Abstractions.Interfaces.Services;
 
 namespace QuickLaunch
 {

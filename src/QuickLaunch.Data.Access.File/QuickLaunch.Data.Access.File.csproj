@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\QuickLaunch.Data.Access.Interface\QuickLaunch.Data.Access.Interface.csproj" />
+    <ProjectReference Include="..\QuickLaunch.Data.Access.Abstractions\QuickLaunch.Data.Access.Abstractions.csproj" />
   </ItemGroup>
 
 </Project>
