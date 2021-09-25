@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30104.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickLaunch", "src\QuickLaunch\QuickLaunch.csproj", "{F7236B5C-B024-4998-8A38-C604BA3E3A23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickLaunch.UI.Wpf", "src\QuickLaunch\QuickLaunch.UI.Wpf.csproj", "{F7236B5C-B024-4998-8A38-C604BA3E3A23}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{969BF62B-7952-4072-AB55-AFD93282230F}"
 	ProjectSection(SolutionItems) = preProject
@@ -22,13 +22,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D95FAB74-E9A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{89E01B21-189C-45FE-BC5F-36CBEE1A5C78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickLaunch.Data.Access.Abstractions", "src\QuickLaunch.Data.Access.Abstractions\QuickLaunch.Data.Access.Abstractions.csproj", "{69F7FCD9-5B85-41EC-9060-1DA8838A0733}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickLaunch.Data.Access.Abstractions", "src\QuickLaunch.Data.Access.Abstractions\QuickLaunch.Data.Access.Abstractions.csproj", "{69F7FCD9-5B85-41EC-9060-1DA8838A0733}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickLaunch.UI.Console", "src\QuickLaunch.UI.Console\QuickLaunch.UI.Console.csproj", "{A522F5A2-8B01-4926-BD88-676BD57329DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickLaunch.UI.Console", "src\QuickLaunch.UI.Console\QuickLaunch.UI.Console.csproj", "{A522F5A2-8B01-4926-BD88-676BD57329DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickLaunch.Operations.Abstractions", "src\QuickLaunch.Operations.Abstractions\QuickLaunch.Operations.Abstractions.csproj", "{D1F09FA5-3CBE-4666-BDF9-FC82B0853C58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickLaunch.Operations.Abstractions", "src\QuickLaunch.Operations.Abstractions\QuickLaunch.Operations.Abstractions.csproj", "{D1F09FA5-3CBE-4666-BDF9-FC82B0853C58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickLaunch.Operations", "src\QuickLaunch.Operations\QuickLaunch.Operations.csproj", "{EA4284EC-28D1-4B3F-8A86-106D9BDA99D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickLaunch.Operations", "src\QuickLaunch.Operations\QuickLaunch.Operations.csproj", "{EA4284EC-28D1-4B3F-8A86-106D9BDA99D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

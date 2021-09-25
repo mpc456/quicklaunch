@@ -20,7 +20,7 @@ using QuickLaunch.Data.Access.Abstractions.Interfaces.Model;
 using QuickLaunch.Data.Access.Abstractions.Interfaces.Services;
 using QuickLaunch.Operations.Abstractions.Interfaces.Services;
 
-namespace QuickLaunch
+namespace QuickLaunch.UI.Wpf
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

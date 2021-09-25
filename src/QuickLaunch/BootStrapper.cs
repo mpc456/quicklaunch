@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
 using QuickLaunch.Data.Access.File.DependencyInjection;
 
-namespace QuickLaunch
+namespace QuickLaunch.UI.Wpf
 {
     /// <summary>
     /// Resolves configuration and dependency injection
