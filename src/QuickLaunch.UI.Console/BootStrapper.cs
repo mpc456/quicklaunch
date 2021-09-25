@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
 using QuickLaunch.Data.Access.File.DependencyInjection;
+using Spectre.Console;
 
 namespace QuickLaunch
 {
@@ -43,7 +44,6 @@ namespace QuickLaunch
             var services = new ServiceCollection();
             services.AddOperationsLibrary();
             services.AddFileDataAccess(Configuration);
-            services.AddTransient(typeof(MainWindow));
 
             var nlogConfig = new NLogLoggingConfiguration(Configuration.GetSection("NLog"));
 

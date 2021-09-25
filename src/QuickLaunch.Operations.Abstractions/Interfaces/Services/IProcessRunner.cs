@@ -1,6 +1,6 @@
 ﻿using QuickLaunch.Data.Access.Abstractions.Interfaces.Model;
 
-namespace QuickLaunch.Services
+namespace QuickLaunch.Operations.Abstractions.Interfaces.Services
 {
     public interface IProcessRunner
     {
