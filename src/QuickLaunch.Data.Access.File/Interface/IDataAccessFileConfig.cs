@@ -1,4 +1,4 @@
-﻿namespace QuickLaunch.Data.Access.File
+﻿namespace QuickLaunch.Data.Access.File.Interface
 {
     public interface IDataAccessFileConfig
     {

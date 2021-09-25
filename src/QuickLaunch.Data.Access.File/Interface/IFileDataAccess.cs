@@ -3,7 +3,7 @@ using QuickLaunch.Data.Access.Interface.DataModel;
 using QuickLaunch.Data.Access.Interface.Services;
 using System.Collections.Generic;
 
-namespace QuickLaunch.Data.Access.File.Implementation
+namespace QuickLaunch.Data.Access.File.Interface
 {
     public interface IFileDataAccess
     {

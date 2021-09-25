@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuickLaunch.Data.Access.File.Interface;
+using System;
 
 namespace QuickLaunch.Data.Access.File
 {
