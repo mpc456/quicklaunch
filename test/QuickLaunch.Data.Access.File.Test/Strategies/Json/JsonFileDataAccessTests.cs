@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using QuickLaunch.Data.Access.File.Strategies.Json;
+using QuickLaunch.Data.Access.File.Test.Mocks;
 
 namespace QuickLaunch.Data.Access.File.Test.Strategies.Json
 {
@@ -10,7 +11,8 @@ namespace QuickLaunch.Data.Access.File.Test.Strategies.Json
         public void CanParseJsonData()
         {
             var config = new DataAccessFileConfig { FilePath = "Strategies/Json/TestData/launchData.json" };
-            var dataAccess = new JsonFileDataAccess(config);
+            var mockBackupService = MockBackupServiceFactory.Create();
+            var dataAccess = new JsonFileDataAccess(config, mockBackupService.Object);
             var launchData = dataAccess.ReadFromFile();
 
             Assert.AreEqual(2, launchData.Count);

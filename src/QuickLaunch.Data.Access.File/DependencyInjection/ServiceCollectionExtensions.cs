@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using QuickLaunch.Data.Access.Abstractions.Interfaces.Services;
 using QuickLaunch.Data.Access.File.Interface;
+using QuickLaunch.Data.Access.File.Interface.Config;
 using QuickLaunch.Data.Access.File.Strategies.Ini;
 using QuickLaunch.Data.Access.File.Strategies.Json;
 using System;
@@ -24,6 +25,7 @@ namespace QuickLaunch.Data.Access.File.DependencyInjection
             services.AddSingleton<IDataAccessFileConfig>(sp => config);
 
             services.AddTransient<IDataAccess, FileDataAcessFacade>();
+            services.AddTransient<IFileBackupService, FileBackupService>();
 
             services.AddTransient<IFileDataAccess, JsonFileDataAccess>();
             services.AddTransient<IFileDataAccess, QrsFileDataAccess>();

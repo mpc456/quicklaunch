@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using QuickLaunch.Data.Access.File.Strategies.Ini;
+using QuickLaunch.Data.Access.File.Test.Mocks;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,7 +15,8 @@ namespace QuickLaunch.Data.Access.File.Test.Strategies.Ini
         {
             
             var config = new DataAccessFileConfig { FilePath = "Strategies/Ini/TestData/magicWords.qrs" };
-            var dataAccess = new QrsFileDataAccess(config);
+            var mockBackupService = MockBackupServiceFactory.Create();
+            var dataAccess = new QrsFileDataAccess(config, mockBackupService.Object);
             var launchData = dataAccess.ReadFromFile();
 
             Assert.AreEqual(2, launchData.Count);

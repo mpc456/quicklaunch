@@ -9,6 +9,7 @@ using JetBrains.Annotations;
 using QuickLaunch.Data.Access.File.Interface;
 using QuickLaunch.Data.Access.Abstractions.Interfaces.Services;
 using QuickLaunch.Data.Access.Abstractions.Interfaces.Model;
+using QuickLaunch.Data.Access.File.Interface.Config;
 
 namespace QuickLaunch.Data.Access.File
 {
@@ -44,6 +45,7 @@ namespace QuickLaunch.Data.Access.File
                 return;
             }
             _data.Add(info.Name, info);
+            SaveChanges();
         }
 
         public void UpdateLaunchInfo(ILaunchInformation info)
@@ -54,6 +56,7 @@ namespace QuickLaunch.Data.Access.File
                 return;
             }
             _data[info.Name] = info;
+            SaveChanges();
         }
 
 
